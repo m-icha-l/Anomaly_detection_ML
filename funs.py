@@ -1,5 +1,8 @@
 import logging
 from datetime import datetime
+import pandas as pd
+import numpy as np
+
 
 current_date = datetime.now().strftime("%Y-%m-%d")
 
@@ -34,13 +37,14 @@ def log(txt, level="info"):
         print(txt)
 
 
-log("START",level = "start")
 
 
-def prep_df(df,df_labels):
+
+def prep_df(df, labels = False, only_a = False):
     df.columns = df.columns.str.strip()
-    df = df.drop(["Fwd Header Length.1"], axis = 1)
+    df.drop(["Fwd Header Length.1"], axis = 1, inplace = True)
 
+    df_labels = pd.DataFrame()
     #df = df.drop_duplicates()
     
     len_1 = len(df)
@@ -51,14 +55,74 @@ def prep_df(df,df_labels):
     df.replace([np.inf, -np.inf], np.nan, inplace=True)
     infs = df.isna().any(axis=1).sum() - nans
     print("Number of flows with inf or -inf : " , infs)
-    
+    print("Number of flows labled as Attac: ", (~df['Label'].str.contains('BENIGN', na=False)).sum())
     df.dropna(inplace=True)
-    len = len_1 - len(df)
-    print(len, "Flows deleted ,","flows in df Friday-WorkingHours-Afternoon-DDos after preparation : ", len(df) )
+    len_2 = len_1 - len(df)
+    print(len_2, "Flows deleted","\nNumber flows in after preparation : ", len(df))
+    print("Number of flows labled as Attac after preperation: ", (~df['Label'].str.contains('BENIGN', na=False)).sum())
+
     
-    df_labels = df["Label"]
-    df = df.drop(["Label"], axis = 1)
-    df_labels = df_labels.reset_index(drop=True)
+    if(only_a == True):
+        print("\nCreating df with everything that is labled having an attac")
+        
+        df_a = df[~df['Label'].str.contains('BENIGN', na=False)].copy()
+                
+        df_a.columns = df_a.columns.str.strip()
+        df_a.replace([np.inf, -np.inf], np.nan, inplace=True)
+        df_a.dropna(inplace=True)
+        df_a.drop(["Label"], axis = 1, inplace = True)
+        df_a.reset_index(drop=True, inplace = True)
+        
+        print("number of flows in Attac only dataframe : ", len(df_a))
+
+    if(labels ==True):
+        
+        df_labels = df["Label"]
+        df_labels.reset_index(drop=True, inplace=True)
+          
+    df.drop(["Label"], axis = 1, inplace=True)
+    df.reset_index(drop=True, inplace = True)
+
+    if(labels == True and only_a == True):
+        return df_labels,df_a
+    elif(labels == True):
+        return df_labels
+    elif(only_a == True):
+        return df_a
+    
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
