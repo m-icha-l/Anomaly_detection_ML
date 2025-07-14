@@ -55,3 +55,5 @@ Number of correct predictions: 149485
 Accuracy of predictions: 83.9938%
 Sensitivity of predictions: 59.3847%
 Precision of predictions: 94.6617%
+No such comm target registered: jupyter.widget.control
+No such comm: fc7d096a-a022-41f2-84c8-2309994890fa
