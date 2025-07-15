@@ -7,6 +7,8 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import IsolationForest
 from sklearn.metrics import classification_report
+import seaborn as sns
+
 current_date = datetime.now().strftime("%Y-%m-%d")
 
 logging.basicConfig(
@@ -126,13 +128,14 @@ def test_IF_model(model_IF,df_scaled,df_labels, name="df"):
     plt.show()
 
     try:
-    df_scaled_result_check = pd.concat([df_scaled.reset_index(drop=True),
+        df_scaled_result_check = pd.concat([df_scaled.reset_index(drop=True),
                                         df_scaled_result.reset_index(drop=True),
                                         df_labels.reset_index(drop=True)],
                                        axis=1)
     except Exception as e:
         print("Failed to concatenate dataframes:", e)
         return None
+    
 
     log(f"3.3 Sprawdzenie dokładniści wytrenowanego modelu na {name}",level="start")
     
@@ -156,11 +159,62 @@ def test_IF_model(model_IF,df_scaled,df_labels, name="df"):
     FN = df_real_anomaly_count - TP
     TN = len(df_scaled_result_check) - TP - FP - FN
     
-    log(f"\nNumber of correct predictions: { TP}")
-    log(f"Accuracy of predictions: {((TP + TN) / len(df_scaled_result_check)) * 100:.4f}%")
-    log(f"Sensitivity of predictions: {(TP / df_real_anomaly_count) * 100:.4f}%")
-    log(f"Precision of predictions: {(TP / df_predicted_anomaly_count) * 100:.4f}%")
-  
+    
+    accuracy = (TP + TN) / len(df_scaled_result_check)
+    sensitivity = TP / df_real_anomaly_count
+    precision = TP / df_predicted_anomaly_count
+
+    log(f"\nNumber of correct predictions: {TP}")
+    log(f"Accuracy of predictions: {accuracy * 100:.4f}%")
+    log(f"Sensitivity of predictions: {sensitivity * 100:.4f}%")
+    log(f"Precision of predictions: {precision * 100:.4f}%")
+    log(f"F - mesure - harmonic-mean of precision and sensitivity: {(2/((1/precision)+1/sensitivity))* 100:.4f}")
+
+    unique_labels = df_scaled_result_check["Label"].unique().tolist()
+
+    
+    stats = []
+    
+    for label in unique_labels:
+        if label == "BENIGN":
+            continue
+        
+        predicted_num = ((df_scaled_result_check["Label"] == label) & 
+                         (df_scaled_result_check["prediction"] == -1)).sum()
+        real_num = (df_scaled_result_check["Label"] == label).sum()
+    
+        stats.append({
+            "Label": label,
+            "predicted_anomaly_count": predicted_num,
+            "real_anomaly_count": real_num
+        })
+    
+    
+    df_stats = pd.DataFrame(stats)
+    df_stats["predicted_percent"] = 100 * df_stats["predicted_anomaly_count"] / df_stats["real_anomaly_count"]
+
+    plt.figure(figsize=(15, 11))
+    sns.barplot(
+        x="Label",
+        y="predicted_percent",
+        hue="Label",            
+        data=df_stats,
+        palette="viridis",
+        legend=False            
+    )
+    
+    plt.axhline(100, color='gray', linestyle='--', label='100% (All real anomalies)')
+    plt.ylim(0, 110)
+    plt.ylabel("Predicted Anomalies (% of Real Anomalies)")
+    plt.xlabel("Anomaly Type")
+    plt.title("Detection Rate per Anomaly Type")
+    plt.xticks(rotation=45)
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+    
+    df_stats.head()
+        
     return df_scaled_result_check
 
 
