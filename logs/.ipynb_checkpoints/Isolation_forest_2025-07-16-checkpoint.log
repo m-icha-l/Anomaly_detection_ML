@@ -1,0 +1,127 @@
+
+
+<-------------------------------------------------[LOG] 2025-07-16 15:11:00 START [LOG]------------------------------------------------->
+Parametry modelu:
+bootstrap: False
+contamination: 0.01
+max_features: 1.0
+max_samples: 8192
+n_estimators: 250
+n_jobs: None
+random_state: 33
+verbose: 1
+warm_start: False
+
+
+<----------------------[LOG] 2025-07-16 15:12:06 2.2 Wizualizacja efektu testu na danych Tuesday-workingHours [LOG]---------------------->
+Detection distribution anomaly/normal: 1.0540% / 98.9460%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 4697
+Normal traffic: 440948
+
+
+<----------------[LOG] 2025-07-16 15:12:18 2.3 Sprawdzenie dokładniści wytrenowanego modelu na Tuesday-workingHours [LOG]---------------->
+Number of flows in Tuesday - Working Hours: 445645
+Correct data: 
+Real number of anomalies in Tuesday - Working Hours: 13832
+Procentage of anomlys in dataset: 3.1038%
+Predicted data: 
+Number of DETECTED anomalies in Tuesday - Working Hours: 4697
+Procentage of anomlys in dataset: 1.0540%
+
+Number of correct predictions: 0
+Accuracy of predictions: 95.8422%
+Sensitivity of predictions: 0.0000%
+Precision of predictions: 0.0000%
+
+
+<---------------------[LOG] 2025-07-16 15:12:45 3.2 Wizualizacja efektu testu na danych Wednesday-WorkingHours [LOG]--------------------->
+Detection distribution anomaly/normal: 22.8397% / 77.1603%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 157915
+Normal traffic: 533491
+
+
+<---------------[LOG] 2025-07-16 15:12:48 3.3 Sprawdzenie dokładniści wytrenowanego modelu na Wednesday-WorkingHours [LOG]--------------->
+Number of flows in Wednesday-WorkingHours: 691406
+Correct data: 
+Real number of anomalies in Wednesday-WorkingHours: 251723
+Procentage of anomlys in dataset: 36.4074%
+Predicted data: 
+Number of DETECTED anomalies in Wednesday-WorkingHours: 
+Procentage of anomlys in dataset: 22.8397%
+
+Number of correct predictions: 149485
+Accuracy of predictions: 83.9938%
+Sensitivity of predictions: 59.3847%
+Precision of predictions: 94.6617%
+F - mesure - harmonic-mean of precision and sensitivity: 72.9840
+
+
+<----------------------------[LOG] 2025-07-16 15:13:10 3.2 Wizualizacja efektu testu na danych Thursday [LOG]---------------------------->
+Detection distribution anomaly/normal: 0.8310% / 99.1690%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 3811
+Normal traffic: 454815
+
+
+<----------------------[LOG] 2025-07-16 15:13:12 3.3 Sprawdzenie dokładniści wytrenowanego modelu na Thursday [LOG]---------------------->
+Number of flows in Thursday: 458626
+Correct data: 
+Real number of anomalies in Thursday: 2216
+Procentage of anomlys in dataset: 0.4832%
+Predicted data: 
+Number of DETECTED anomalies in Thursday: 
+Procentage of anomlys in dataset: 0.8310%
+
+Number of correct predictions: 18
+Accuracy of predictions: 98.6937%
+Sensitivity of predictions: 0.8123%
+Precision of predictions: 0.4723%
+F - mesure - harmonic-mean of precision and sensitivity: 0.5973
+
+
+<-----------------------------[LOG] 2025-07-16 15:13:32 3.2 Wizualizacja efektu testu na danych Friday [LOG]----------------------------->
+Detection distribution anomaly/normal: 10.3874% / 89.6126%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 72994
+Normal traffic: 629724
+
+
+<-----------------------[LOG] 2025-07-16 15:13:35 3.3 Sprawdzenie dokładniści wytrenowanego modelu na Friday [LOG]----------------------->
+Number of flows in Friday: 702718
+Correct data: 
+Real number of anomalies in Friday: 288785
+Procentage of anomlys in dataset: 41.0954%
+Predicted data: 
+Number of DETECTED anomalies in Friday: 
+Procentage of anomlys in dataset: 10.3874%
+
+Number of correct predictions: 51563
+Accuracy of predictions: 63.1925%
+Sensitivity of predictions: 17.8552%
+Precision of predictions: 70.6401%
+F - mesure - harmonic-mean of precision and sensitivity: 28.5052
+
+
+<-------------------------------[LOG] 2025-07-16 15:14:50 3.2 Wizualizacja efektu testu na danych df [LOG]------------------------------->
+Detection distribution anomaly/normal: 10.4167% / 89.5833%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 239417
+Normal traffic: 2058978
+
+
+<-------------------------[LOG] 2025-07-16 15:15:00 3.3 Sprawdzenie dokładniści wytrenowanego modelu na df [LOG]------------------------->
+Number of flows in df: 2298395
+Correct data: 
+Real number of anomalies in df: 556556
+Procentage of anomlys in dataset: 24.2150%
+Predicted data: 
+Number of DETECTED anomalies in df: 
+Procentage of anomlys in dataset: 10.4167%
+
+Number of correct predictions: 201066
+Accuracy of predictions: 82.8645%
+Sensitivity of predictions: 36.1268%
+Precision of predictions: 83.9815%
+F - mesure - harmonic-mean of precision and sensitivity: 50.5208

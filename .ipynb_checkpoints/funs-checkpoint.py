@@ -9,22 +9,31 @@ from sklearn.ensemble import IsolationForest
 from sklearn.metrics import classification_report
 import seaborn as sns
 
-current_date = datetime.now().strftime("%Y-%m-%d")
-
-logging.basicConfig(
-    filename=f'logs/Isolation_forest_{current_date}.log',
-    filemode='a',
-    format='%(message)s', 
-    level=logging.INFO
-)
-
-formatter = logging.Formatter('%(asctime)s ', datefmt='%Y-%m-%d %H:%M:%S')
+file_name = "untitled"
 
 def log(txt, level="info"):
+
+    global file_name
+    if isinstance(level, (tuple, list)):
+        file_name = level[1]
+        
+    current_date = datetime.now().strftime("%Y-%m-%d")
+
+    logging.basicConfig(
+        filename=f'logs/{file_name}_{current_date}.log',
+        filemode='a',
+        format='%(message)s', 
+        level=logging.INFO
+    )
+
+    formatter = logging.Formatter('%(asctime)s ', datefmt='%Y-%m-%d %H:%M:%S')
+    
     txt = str(txt)
 
-    if level == "start":
+    if level[0] == "start":
         # Tworzy rekord loga ręcznie i formatujemy go jako tekst
+        
+        print(file_name)
         record = logging.LogRecord(name="log", level=logging.INFO, pathname="", lineno=0, msg="", args=(), exc_info=None)
         
         log_header = formatter.format(record)
@@ -48,7 +57,35 @@ def log(txt, level="info"):
 def prep_df(df, labels = False, only_a = False):
     df.columns = df.columns.str.strip()
     df.drop(["Fwd Header Length.1"], axis = 1, inplace = True)
+################################
+    columns_to_keep = [
+    'Bwd Packet Length Max',
+    'Bwd Packet Length Mean',
+    'Bwd Packet Length Std',
+    'Flow Bytes/s',
+    'Flow Duration',
+    'Flow IAT Max',
+    'Flow IAT Mean',
+    'Flow IAT Min',
+    'Flow IAT Std',
+    'Fwd IAT Total',
+    'Fwd Packet Length Max',
+    'Fwd Packet Length Mean',
+    'Fwd Packet Length Min',
+    'Fwd Packet Length Std',
+    'Total Backward Packets',
+    'Total Fwd Packets',
+    'Total Length of Bwd Packets',
+    'Total Length of Fwd Packets',
+    'Label',
+    ]
+    
+    # Drop columns NOT in columns_to_keep (inplace)
+    cols_to_drop = [col for col in df.columns if col not in columns_to_keep]
+    df.drop(columns=cols_to_drop, inplace=True)
 
+##########################################
+    
     df_labels = pd.DataFrame()
     #df = df.drop_duplicates()
     
@@ -107,7 +144,7 @@ def test_IF_model(model_IF,df_scaled,df_labels, name="df"):
     anomaly = (df_scaled_result["prediction"] == -1).sum()
     normal = (df_scaled_result["prediction"] == 1).sum()
     
-    log(f"3.2 Wizualizacja efektu testu na danych {name}",level="start")
+    log(f"3.2 Wizualizacja efektu testu na danych {name}",level=["start","Isolation_forest"])
     log(f"Detection distribution anomaly/normal: {anomaly / len(df_scaled_result) * 100:.4f}% / {normal / len(df_scaled_result) * 100:.4f}%")
     log("!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!")
     log(f"Anomaly detected: {anomaly}")
@@ -150,7 +187,7 @@ def test_IF_model(model_IF,df_scaled,df_labels, name="df"):
     df_predicted_anomaly_count = (df_scaled_result_check["prediction"] == -1).sum()
     
     log("Predicted data: ")
-    log(f"Number of DETECTED anomalies in {name}: ", df_predicted_anomaly_count)
+    log(f"Number of DETECTED anomalies in {name}: df_predicted_anomaly_count")
     log(f"Procentage of anomlys in dataset: {df_predicted_anomaly_count / len(df_scaled_result_check) * 100:.4f}%")
     
     
@@ -203,7 +240,8 @@ def test_IF_model(model_IF,df_scaled,df_labels, name="df"):
         legend=False            
     )
     
-    plt.axhline(100, color='gray', linestyle='--', label='100% (All real anomalies)')
+    plt.axhline(100, color='green', linestyle='-', label='100% (All real anomalies)')
+    plt.axhline(50, color='gray', linestyle='--', label='50% (All real anomalies)')
     plt.ylim(0, 110)
     plt.ylabel("Predicted Anomalies (% of Real Anomalies)")
     plt.xlabel("Anomaly Type")
