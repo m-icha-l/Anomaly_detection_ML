@@ -678,3 +678,5 @@ Precision of predictions: 85.5694%
 F - mesure - harmonic-mean of precision and sensitivity: 55.9242
 Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
 NumExpr defaulting to 16 threads.
+No such comm target registered: jupyter.widget.control
+No such comm: 5746103d-3919-40e1-accc-46f89a73d238

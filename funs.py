@@ -31,7 +31,6 @@ def log(txt, level="info"):
     txt = str(txt)
 
     if level[0] == "start":
-        # Tworzy rekord loga ręcznie i formatujemy go jako tekst
         
         print(file_name)
         record = logging.LogRecord(name="log", level=logging.INFO, pathname="", lineno=0, msg="", args=(), exc_info=None)
@@ -87,19 +86,30 @@ def prep_df(df, labels = False, only_a = False):
 ##########################################
     
     df_labels = pd.DataFrame()
-    #df = df.drop_duplicates()
-    
     len_1 = len(df)
     nans = df.isna().any(axis=1).sum()
+    
     print("Number of flows: " , len(df))
     print("Number of flows with NAN: " , nans)
     
     df.replace([np.inf, -np.inf], np.nan, inplace=True)
     infs = df.isna().any(axis=1).sum() - nans
+    
     print("Number of flows with inf or -inf : " , infs)
     print("Number of flows labled as Attac: ", (~df['Label'].str.contains('BENIGN', na=False)).sum())
     df.dropna(inplace=True)
     len_2 = len_1 - len(df)
+
+##########################################################################################              2
+    # Count duplicate rows and add a column 'Repetition num' with the count
+    df_counts = df.groupby(list(df.columns)).size().reset_index(name='Repetition num')
+    
+    # Replace original df with grouped version (deduplicated with repetition count)
+    df.drop(df.index, inplace=True)  # Clear existing rows in df
+    for col in df_counts.columns:
+        df[col] = df_counts[col].values  # Fill df with new data
+##########################################################################################              2
+    
     print(len_2, "Flows deleted","\nNumber flows in after preparation : ", len(df))
     print("Number of flows labled as Attac after preperation: ", (~df['Label'].str.contains('BENIGN', na=False)).sum())
 
@@ -123,6 +133,7 @@ def prep_df(df, labels = False, only_a = False):
         df_labels.reset_index(drop=True, inplace=True)
           
     df.drop(["Label"], axis = 1, inplace=True)
+    print("flag 3")
     df.reset_index(drop=True, inplace = True)
 
     if(labels == True and only_a == True):
@@ -187,12 +198,12 @@ def test_IF_model(model_IF,df_scaled,df_labels, name="df"):
     df_predicted_anomaly_count = (df_scaled_result_check["prediction"] == -1).sum()
     
     log("Predicted data: ")
-    log(f"Number of DETECTED anomalies in {name}: df_predicted_anomaly_count")
+    log(f"Number of DETECTED anomalies in {name}: {df_predicted_anomaly_count}")
     log(f"Procentage of anomlys in dataset: {df_predicted_anomaly_count / len(df_scaled_result_check) * 100:.4f}%")
     
     
     TP = ((df_scaled_result_check["Label"] != "BENIGN") & (df_scaled_result_check["prediction"] == -1)).sum()
-    FP = df_predicted_anomaly_count - TP
+    FP = ((df_scaled_result_check["Label"] == "BENIGN") & (df_scaled_result_check["prediction"] == -1)).sum()
     FN = df_real_anomaly_count - TP
     TN = len(df_scaled_result_check) - TP - FP - FN
     
@@ -201,11 +212,17 @@ def test_IF_model(model_IF,df_scaled,df_labels, name="df"):
     sensitivity = TP / df_real_anomaly_count
     precision = TP / df_predicted_anomaly_count
 
-    log(f"\nNumber of correct predictions: {TP}")
+    if precision == 0 or sensitivity == 0:
+        f_measure = 0
+    else:
+        f_measure = (2 * precision * sensitivity) / (precision + sensitivity)
+    
+    log(f"\nNumber of correct predictions(TP): {TP}")
+    log(f"Number of wrong predyctions(FP): {FP}")
     log(f"Accuracy of predictions: {accuracy * 100:.4f}%")
     log(f"Sensitivity of predictions: {sensitivity * 100:.4f}%")
     log(f"Precision of predictions: {precision * 100:.4f}%")
-    log(f"F - mesure - harmonic-mean of precision and sensitivity: {(2/((1/precision)+1/sensitivity))* 100:.4f}")
+    log(f"F - mesure - harmonic-mean of precision and sensitivity: {f_measure* 100:.4f}")
 
     unique_labels = df_scaled_result_check["Label"].unique().tolist()
 
