@@ -53,7 +53,7 @@ def log(txt, level="info"):
 
 
 
-def prep_df(df, labels = False, only_a = False):
+def prep_df(df, labels = False, only_a = False, rep = False):
     df.columns = df.columns.str.strip()
     df.drop(["Fwd Header Length.1"], axis = 1, inplace = True)
 ################################
@@ -83,7 +83,6 @@ def prep_df(df, labels = False, only_a = False):
     cols_to_drop = [col for col in df.columns if col not in columns_to_keep]
     df.drop(columns=cols_to_drop, inplace=True)
 
-##########################################
     
     df_labels = pd.DataFrame()
     len_1 = len(df)
@@ -102,13 +101,30 @@ def prep_df(df, labels = False, only_a = False):
 
 ##########################################################################################              2
     # Count duplicate rows and add a column 'Repetition num' with the count
-    df_counts = df.groupby(list(df.columns)).size().reset_index(name='Repetition num')
     
-    # Replace original df with grouped version (deduplicated with repetition count)
-    df.drop(df.index, inplace=True)  # Clear existing rows in df
-    for col in df_counts.columns:
-        df[col] = df_counts[col].values  # Fill df with new data
-##########################################################################################              2
+    if(rep == False):
+        df_counts = df.groupby(list(df.columns)).size().reset_index(name='Repetition num')
+        
+        # Replace original df with grouped version (deduplicated with repetition count)
+        df.drop(df.index, inplace=True)  # Clear existing rows in df
+        for col in df_counts.columns:
+            df[col] = df_counts[col].values  # Fill df with new data
+            
+    else:
+        repetition_counts = (
+            df.groupby(df.columns.tolist())
+            .size()
+            .rename("Repetition num")
+            .reset_index()
+        )
+        
+        df["Repetition num"] = df.merge(
+            repetition_counts, 
+            on=df.columns.tolist(), 
+            how="left"
+        )["Repetition num"]
+        
+##########################################################################################        3
     
     print(len_2, "Flows deleted","\nNumber flows in after preparation : ", len(df))
     print("Number of flows labled as Attac after preperation: ", (~df['Label'].str.contains('BENIGN', na=False)).sum())
@@ -222,7 +238,7 @@ def test_IF_model(model_IF,df_scaled,df_labels, name="df"):
     log(f"Accuracy of predictions: {accuracy * 100:.4f}%")
     log(f"Sensitivity of predictions: {sensitivity * 100:.4f}%")
     log(f"Precision of predictions: {precision * 100:.4f}%")
-    log(f"F - mesure - harmonic-mean of precision and sensitivity: {f_measure* 100:.4f}")
+    log(f"F - mesure - harmonic-mean of precision and sensitivity: {f_measure* 100:.4f}%")
 
     unique_labels = df_scaled_result_check["Label"].unique().tolist()
 
