@@ -149,7 +149,6 @@ def prep_df(df, labels = False, only_a = False, rep = False):
         df_labels.reset_index(drop=True, inplace=True)
           
     df.drop(["Label"], axis = 1, inplace=True)
-    print("flag 3")
     df.reset_index(drop=True, inplace = True)
 
     if(labels == True and only_a == True):
@@ -158,8 +157,9 @@ def prep_df(df, labels = False, only_a = False, rep = False):
         return df_labels
     elif(only_a == True):
         return df_a
-    
-def test_IF_model(model_IF,df_scaled,df_labels, name="df"):
+
+
+def test_IF_model(model_IF,df_scaled,df_labels, name="df", level = ["start","Isolation_Forest"]):
     
     preds = model_IF.predict(df_scaled)
     scores = model_IF.score_samples(df_scaled)
@@ -167,12 +167,35 @@ def test_IF_model(model_IF,df_scaled,df_labels, name="df"):
     df_scaled_result['prediction'] = preds
     df_scaled_result['anomaly_score'] = scores
     
+    return test_model(df_scaled_result, df_scaled, df_labels, name)
+
+
+def test_LOF_model(model_LOF,df_scaled,df_labels, name="df",level = ["start","Local_Outlier_Factor"]):
+
+    preds = model_LOF.predict(df_scaled)
+    scores = -model_LOF.decision_function(df_scaled)
+    df_scaled_result = pd.DataFrame()
+    df_scaled_result['prediction'] = preds
+    df_scaled_result['anomaly_score'] = scores
     
+    return test_model(df_scaled_result, df_scaled, df_labels, name)
+
+   
+    
+def test_model(df_scaled_result = None, df_scaled = None, df_labels = None, name="df", level = ["start","no_name"], ready = None, flag = False):
+    
+    if(flag == True):
+        df_scaled_result = ready
+
     anomaly = (df_scaled_result["prediction"] == -1).sum()
     normal = (df_scaled_result["prediction"] == 1).sum()
+    anomaly_proc= anomaly / len(df_scaled_result)
+    normal_proc= normal / len(df_scaled_result)
+
+        
     
-    log(f"3.2 Wizualizacja efektu testu na danych {name}",level=["start","Isolation_forest"])
-    log(f"Detection distribution anomaly/normal: {anomaly / len(df_scaled_result) * 100:.4f}% / {normal / len(df_scaled_result) * 100:.4f}%")
+    log(f" Wizualizacja efektu testu na danych {name}",level)
+    log(f"Detection distribution anomaly/normal: {anomaly_proc * 100:.4f}% / {normal_proc * 100:.4f}%")
     log("!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!")
     log(f"Anomaly detected: {anomaly}")
     log(f"Normal traffic: {normal}") 
@@ -182,7 +205,7 @@ def test_IF_model(model_IF,df_scaled,df_labels, name="df"):
     
     plt.scatter(df_scaled_result.index, df_scaled_result['anomaly_score'], color='blue', label='Anomaly Score', s=10)
     
-    plt.title('Anomaly Scores for All Data Points (IsolationForest)')
+    plt.title('Anomaly Scores for All Data Points')
     plt.xlabel('Data Point Index')
     plt.ylabel('Anomaly Score')
     plt.legend()
@@ -191,17 +214,20 @@ def test_IF_model(model_IF,df_scaled,df_labels, name="df"):
     plt.ylim(top=0)
     plt.show()
 
-    try:
-        df_scaled_result_check = pd.concat([df_scaled.reset_index(drop=True),
-                                        df_scaled_result.reset_index(drop=True),
-                                        df_labels.reset_index(drop=True)],
-                                       axis=1)
-    except Exception as e:
-        print("Failed to concatenate dataframes:", e)
-        return None
-    
+    if(flag == True):
+        df_scaled_result_check = ready
+    else:
+        try:
+            df_scaled_result_check = pd.concat([df_scaled.reset_index(drop=True), 
+                                                df_scaled_result.reset_index(drop=True), 
+                                                df_labels.reset_index(drop=True)],
+                                                axis=1)
+        except Exception as e:
+            print("Failed to concatenate dataframes:", e)
+            return None
+        
 
-    log(f"3.3 Sprawdzenie dokładniści wytrenowanego modelu na {name}",level="start")
+    log(f"Sprawdzenie dokładniści wytrenowanego modelu na {name}",level)
     
     log(f"Number of flows in {name}: {len(df_scaled_result_check)}")
     
@@ -249,8 +275,7 @@ def test_IF_model(model_IF,df_scaled,df_labels, name="df"):
         if label == "BENIGN":
             continue
         
-        predicted_num = ((df_scaled_result_check["Label"] == label) & 
-                         (df_scaled_result_check["prediction"] == -1)).sum()
+        predicted_num = ((df_scaled_result_check["Label"] == label) & (df_scaled_result_check["prediction"] == -1)).sum()
         real_num = (df_scaled_result_check["Label"] == label).sum()
     
         stats.append({
