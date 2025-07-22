@@ -1,0 +1,87 @@
+
+
+<-------------------------------------------------[LOG] 2025-07-22 13:11:43 START [LOG]------------------------------------------------->
+
+
+<------------------------------[LOG] 2025-07-22 13:53:50  Wizualizacja efektu testu na danych test_1 [LOG]------------------------------>
+Detection distribution anomaly/normal: 9.1913% / 90.8087%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 154137
+Normal traffic: 1522856
+
+
+<-------------------------[LOG] 2025-07-22 13:53:56 Sprawdzenie dokładniści wytrenowanego modelu na test_1 [LOG]------------------------->
+Number of flows in test_1: 1676993
+Correct data: 
+Real number of anomalies in test_1: 335370
+Procentage of anomlys in dataset: 19.9983%
+Predicted data: 
+Number of DETECTED anomalies in test_1: 154137
+Procentage of anomlys in dataset: 9.1913%
+
+Number of correct predictions(TP): 17262
+Number of wrong predyctions(FP): 136875
+Accuracy of predictions: 72.8691%
+Sensitivity of predictions: 5.1472%
+Precision of predictions: 11.1991%
+F - mesure - harmonic-mean of precision and sensitivity: 7.0528%
+
+
+<------------------------------[LOG] 2025-07-22 13:53:59  Wizualizacja efektu testu na danych test_1 [LOG]------------------------------>
+Detection distribution anomaly/normal: 9.1913% / 90.8087%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 154137
+Normal traffic: 1522856
+
+
+<-------------------------[LOG] 2025-07-22 13:54:04 Sprawdzenie dokładniści wytrenowanego modelu na test_1 [LOG]------------------------->
+Number of flows in test_1: 1676993
+Correct data: 
+Real number of anomalies in test_1: 335370
+Procentage of anomlys in dataset: 19.9983%
+Predicted data: 
+Number of DETECTED anomalies in test_1: 154137
+Procentage of anomlys in dataset: 9.1913%
+
+Number of correct predictions(TP): 17262
+Number of wrong predyctions(FP): 136875
+Accuracy of predictions: 72.8691%
+Sensitivity of predictions: 5.1472%
+Precision of predictions: 11.1991%
+F - mesure - harmonic-mean of precision and sensitivity: 7.0528%
+
+
+<-------------------------------------------------[LOG] 2025-07-22 14:02:17 START [LOG]------------------------------------------------->
+
+
+<-------------------------------------------------[LOG] 2025-07-22 14:02:43 START [LOG]------------------------------------------------->
+
+
+<-------------------------------------------------[LOG] 2025-07-22 14:03:14 START [LOG]------------------------------------------------->
+
+
+<-------------------------------------------------[LOG] 2025-07-22 14:27:05 START [LOG]------------------------------------------------->
+
+
+<-----------------------------[LOG] 2025-07-22 14:29:21  Wizualizacja efektu testu na danych df_2_test [LOG]----------------------------->
+Detection distribution anomaly/normal: 26.5743% / 73.4257%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 90944
+Normal traffic: 251281
+
+
+<-----------------------[LOG] 2025-07-22 14:29:22 Sprawdzenie dokładniści wytrenowanego modelu na df_2_test [LOG]----------------------->
+Number of flows in df_2_test: 342225
+Correct data: 
+Real number of anomalies in df_2_test: 9084
+Procentage of anomlys in dataset: 2.6544%
+Predicted data: 
+Number of DETECTED anomalies in df_2_test: 90944
+Procentage of anomlys in dataset: 26.5743%
+
+Number of correct predictions(TP): 8965
+Number of wrong predyctions(FP): 81979
+Accuracy of predictions: 76.0105%
+Sensitivity of predictions: 98.6900%
+Precision of predictions: 9.8577%
+F - mesure - harmonic-mean of precision and sensitivity: 17.9250%
