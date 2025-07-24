@@ -85,3 +85,7 @@ Accuracy of predictions: 76.0105%
 Sensitivity of predictions: 98.6900%
 Precision of predictions: 9.8577%
 F - mesure - harmonic-mean of precision and sensitivity: 17.9250%
+No such comm target registered: jupyter.widget.control
+No such comm: 65a4ea7c-c317-463d-872a-6492a4d367cf
+No such comm target registered: jupyter.widget.control
+No such comm: 2f99ac6a-b638-4e91-9245-225712166752

@@ -53,35 +53,44 @@ def log(txt, level="info"):
 
 
 
-def prep_df(df, labels = False, only_a = False, rep = False):
+def prep_df(df, labels = False, only_a = False, rep = False, keep_col = False):
+
+#df - name of the dataframem to prep
+#labels - do you want to return df with only labels able to conenct to preped df
+#only_a - do you want to return df with only attacks
+#rep - in preperation do you want to keep repiting flows
+#keep_col - in preperation do you watn to keep all the columns in df without droping one deemed usles by Mr. Kostas
+    
     df.columns = df.columns.str.strip()
     df.drop(["Fwd Header Length.1"], axis = 1, inplace = True)
 ################################
-    columns_to_keep = [
-    'Bwd Packet Length Max',
-    'Bwd Packet Length Mean',
-    'Bwd Packet Length Std',
-    'Flow Bytes/s',
-    'Flow Duration',
-    'Flow IAT Max',
-    'Flow IAT Mean',
-    'Flow IAT Min',
-    'Flow IAT Std',
-    'Fwd IAT Total',
-    'Fwd Packet Length Max',
-    'Fwd Packet Length Mean',
-    'Fwd Packet Length Min',
-    'Fwd Packet Length Std',
-    'Total Backward Packets',
-    'Total Fwd Packets',
-    'Total Length of Bwd Packets',
-    'Total Length of Fwd Packets',
-    'Label',
-    ]
-    
-    # Drop columns NOT in columns_to_keep (inplace)
-    cols_to_drop = [col for col in df.columns if col not in columns_to_keep]
-    df.drop(columns=cols_to_drop, inplace=True)
+    if(keep_col == False):
+        
+        columns_to_keep = [
+        'Bwd Packet Length Max',
+        'Bwd Packet Length Mean',
+        'Bwd Packet Length Std',
+        'Flow Bytes/s',
+        'Flow Duration',
+        'Flow IAT Max',
+        'Flow IAT Mean',
+        'Flow IAT Min',
+        'Flow IAT Std',
+        'Fwd IAT Total',
+        'Fwd Packet Length Max',
+        'Fwd Packet Length Mean',
+        'Fwd Packet Length Min',
+        'Fwd Packet Length Std',
+        'Total Backward Packets',
+        'Total Fwd Packets',
+        'Total Length of Bwd Packets',
+        'Total Length of Fwd Packets',
+        'Label',
+        ]
+        
+        # Drop columns NOT in columns_to_keep (inplace)
+        cols_to_drop = [col for col in df.columns if col not in columns_to_keep]
+        df.drop(columns=cols_to_drop, inplace=True)
 
     
     df_labels = pd.DataFrame()
@@ -111,18 +120,25 @@ def prep_df(df, labels = False, only_a = False, rep = False):
             df[col] = df_counts[col].values  # Fill df with new data
             
     else:
+        original_cols = df.columns.tolist()
+        
         repetition_counts = (
-            df.groupby(df.columns.tolist())
+            df.groupby(original_cols)
             .size()
             .rename("Repetition num")
             .reset_index()
         )
         
-        df["Repetition num"] = df.merge(
-            repetition_counts, 
-            on=df.columns.tolist(), 
+        df_merge = df.merge(
+            repetition_counts,
+            on=original_cols,
             how="left"
-        )["Repetition num"]
+        )
+        
+        df.drop(df.index, inplace=True)
+        for col in df_merge.columns:
+            df[col] = df_merge[col].values
+
         
 ##########################################################################################        3
     
@@ -149,6 +165,7 @@ def prep_df(df, labels = False, only_a = False, rep = False):
         df_labels.reset_index(drop=True, inplace=True)
           
     df.drop(["Label"], axis = 1, inplace=True)
+    df.dropna(inplace=True)
     df.reset_index(drop=True, inplace = True)
 
     if(labels == True and only_a == True):
@@ -166,11 +183,11 @@ def test_IF_model(model_IF,df_scaled,df_labels, name="df", level = ["start","Iso
     df_scaled_result = pd.DataFrame()
     df_scaled_result['prediction'] = preds
     df_scaled_result['anomaly_score'] = scores
-    
-    return test_model(df_scaled_result, df_scaled, df_labels, name)
+
+    return test_model(df_scaled_result, df_scaled, df_labels, name,level)
 
 
-def test_LOF_model(model_LOF,df_scaled,df_labels, name="df",level = ["start","Local_Outlier_Factor"]):
+def test_LOF_model(model_LOF,df_scaled,df_labels, name="df", level = ["start","Local_Outlier_Factor"]):
 
     preds = model_LOF.predict(df_scaled)
     scores = -model_LOF.decision_function(df_scaled)
@@ -178,7 +195,7 @@ def test_LOF_model(model_LOF,df_scaled,df_labels, name="df",level = ["start","Lo
     df_scaled_result['prediction'] = preds
     df_scaled_result['anomaly_score'] = scores
     
-    return test_model(df_scaled_result, df_scaled, df_labels, name)
+    return test_model(df_scaled_result, df_scaled, df_labels, name, level)
 
    
     
