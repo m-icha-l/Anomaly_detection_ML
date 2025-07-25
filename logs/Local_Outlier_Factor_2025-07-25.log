@@ -1,0 +1,45 @@
+
+
+<-------------------------------------------------[LOG] 2025-07-25 18:47:52 START [LOG]------------------------------------------------->
+
+
+<-------------------------------------------------[LOG] 2025-07-25 18:57:47 START [LOG]------------------------------------------------->
+
+
+<-------------------------------------------------[LOG] 2025-07-25 19:00:51 START [LOG]------------------------------------------------->
+
+
+<-------------------------------------------------[LOG] 2025-07-25 19:02:46 START [LOG]------------------------------------------------->
+
+
+<-------------------------------------------------[LOG] 2025-07-25 19:02:56 START [LOG]------------------------------------------------->
+
+
+<-------------------------------------------------[LOG] 2025-07-25 19:03:17 START [LOG]------------------------------------------------->
+
+
+<-------------------------------------------------[LOG] 2025-07-25 19:03:20 START [LOG]------------------------------------------------->
+
+
+<-----------------------------[LOG] 2025-07-25 19:07:02  Wizualizacja efektu testu na danych GMM_Test [LOG]----------------------------->
+Detection distribution anomaly/normal: 5.0002% / 94.9998%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 17112
+Normal traffic: 325113
+
+
+<------------------------[LOG] 2025-07-25 19:07:03 Sprawdzenie dokładniści wytrenowanego modelu na GMM_Test [LOG]------------------------>
+Number of flows in GMM_Test: 342225
+Correct data: 
+Real number of anomalies in GMM_Test: 9084
+Procentage of anomlys in dataset: 2.6544%
+Predicted data: 
+Number of DETECTED anomalies in GMM_Test: 17112
+Procentage of anomlys in dataset: 5.0002%
+
+Number of correct predictions(TP): 4
+Number of wrong predyctions(FP): 17108
+Accuracy of predictions: 92.3477%
+Sensitivity of predictions: 0.0440%
+Precision of predictions: 0.0234%
+F - mesure - harmonic-mean of precision and sensitivity: 0.0305%

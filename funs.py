@@ -197,7 +197,33 @@ def test_LOF_model(model_LOF,df_scaled,df_labels, name="df", level = ["start","L
     
     return test_model(df_scaled_result, df_scaled, df_labels, name, level)
 
-   
+def test_DBSCAN_model(model_dbscan, df_scaled, df_labels, name="df", level=["start", "DBSCAN"]):
+    preds = model_dbscan.labels_
+
+    # Optionally add simple anomaly score (binary)
+    scores = np.where(preds == -1, 1.0, 0.0)
+
+    # OR: add distance-based score instead (optional, more advanced)
+
+    df_scaled_result = pd.DataFrame()
+    df_scaled_result['prediction'] = preds
+    df_scaled_result['anomaly_score'] = scores
+
+    return test_model(df_scaled_result, df_scaled, df_labels, name, level)
+
+def test_GMM_model(model_gmm, df_scaled, df_labels, name="df", level=["start", "GMM"]):
+    # Compute negative log-likelihood scores
+    scores = -model_gmm.score_samples(df_scaled)
+    
+    # Use threshold (e.g., 95th percentile) to define anomalies
+    threshold = np.percentile(scores, 95)
+    preds = np.where(scores > threshold, -1, 1)  # -1 = anomaly, 1 = normal
+    
+    df_scaled_result = pd.DataFrame()
+    df_scaled_result['prediction'] = preds
+    df_scaled_result['anomaly_score'] = scores
+
+    return test_model(df_scaled_result, df_scaled, df_labels, name, level)
     
 def test_model(df_scaled_result = None, df_scaled = None, df_labels = None, name="df", level = ["start","no_name"], ready = None, flag = False):
     
