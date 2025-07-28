@@ -961,3 +961,5 @@ Precision of predictions: 84.1926%
 F - mesure - harmonic-mean of precision and sensitivity: 50.9346%
 No such comm target registered: jupyter.widget.control
 No such comm: 0771832c-58dc-4f56-977d-1b8d032bad12
+No such comm target registered: jupyter.widget.control
+No such comm: 166c2a23-0d99-4458-bf5d-7e1997eb48d6

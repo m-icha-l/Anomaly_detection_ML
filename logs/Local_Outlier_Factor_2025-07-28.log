@@ -1,0 +1,69 @@
+
+
+<-------------------------------------------------[LOG] 2025-07-28 17:02:11 START [LOG]------------------------------------------------->
+
+
+<------------------------------[LOG] 2025-07-28 17:07:14  Wizualizacja efektu testu na danych df_test [LOG]------------------------------>
+Detection distribution anomaly/normal: 25.5057% / 74.4943%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 87287
+Normal traffic: 254938
+
+
+<------------------------[LOG] 2025-07-28 17:07:15 Sprawdzenie dokładniści wytrenowanego modelu na df_test [LOG]------------------------>
+Number of flows in df_test: 342225
+Correct data: 
+Real number of anomalies in df_test: 9084
+Procentage of anomlys in dataset: 2.6544%
+Predicted data: 
+Number of DETECTED anomalies in df_test: 87287
+Procentage of anomlys in dataset: 25.5057%
+
+Number of correct predictions(TP): 8935
+Number of wrong predyctions(FP): 78352
+Accuracy of predictions: 77.0616%
+Sensitivity of predictions: 98.3598%
+Precision of predictions: 10.2363%
+F - mesure - harmonic-mean of precision and sensitivity: 18.5429%
+Detection rate by attack type:
+Name: SSH-Patator, Detected: 96.0355%
+Name: FTP-Patator, Detected: 99.5953%
+
+
+<------------------------------[LOG] 2025-07-28 17:15:33  Wizualizacja efektu testu na danych df_test [LOG]------------------------------>
+Detection distribution anomaly/normal: 35.6408% / 64.3592%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 597693
+Normal traffic: 1079300
+
+
+<------------------------[LOG] 2025-07-28 17:15:39 Sprawdzenie dokładniści wytrenowanego modelu na df_test [LOG]------------------------>
+Number of flows in df_test: 1676993
+Correct data: 
+Real number of anomalies in df_test: 335370
+Procentage of anomlys in dataset: 19.9983%
+Predicted data: 
+Number of DETECTED anomalies in df_test: 597693
+Procentage of anomlys in dataset: 35.6408%
+
+Number of correct predictions(TP): 298169
+Number of wrong predyctions(FP): 299524
+Accuracy of predictions: 79.9209%
+Sensitivity of predictions: 88.9075%
+Precision of predictions: 49.8866%
+F - mesure - harmonic-mean of precision and sensitivity: 63.9119%
+Detection rate by attack type:
+Name: SSH-Patator, Detected: 96.0355%
+Name: FTP-Patator, Detected: 99.5953%
+Name: DoS Slowhttptest, Detected: 90.4343%
+Name: DoS Hulk, Detected: 96.278%
+Name: DoS slowloris, Detected: 60.5537%
+Name: DoS GoldenEye, Detected: 83.5716%
+Name: Heartbleed, Detected: 100.0%
+Name: Web Attack � XSS, Detected: 2.7607%
+Name: Web Attack � Brute Force, Detected: 3.5739%
+Name: Web Attack � Sql Injection, Detected: 70.0%
+Name: Infiltration, Detected: 44.4444%
+Name: Bot, Detected: 42.3336%
+Name: PortScan, Detected: 72.9589%
+Name: DDoS, Detected: 82.0237%
