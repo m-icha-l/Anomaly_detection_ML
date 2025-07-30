@@ -1,0 +1,349 @@
+
+
+<-------------------------------------------------[LOG] 2025-07-30 13:50:37 START [LOG]------------------------------------------------->
+
+
+<-------------------------------------------------[LOG] 2025-07-30 13:52:36 START [LOG]------------------------------------------------->
+
+
+<-------------------------[LOG] 2025-07-30 13:57:12  Wizualizacja efektu testu na danych Autoencoder_Test [LOG]------------------------->
+Detection distribution anomaly/normal: 50.0000% / 50.0000%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 229313
+Normal traffic: 229313
+
+
+<--------------------[LOG] 2025-07-30 13:57:14 Sprawdzenie dokładniści wytrenowanego modelu na Autoencoder_Test [LOG]-------------------->
+Number of flows in Autoencoder_Test: 458626
+Correct data: 
+Real number of anomalies in Autoencoder_Test: 2216
+Procentage of anomlys in dataset: 0.4832%
+Predicted data: 
+Number of DETECTED anomalies in Autoencoder_Test: 229313
+Procentage of anomlys in dataset: 50.0000%
+
+Number of correct predictions(TP): 2117
+Number of wrong predyctions(FP): 227196
+Accuracy of predictions: 50.4400%
+Sensitivity of predictions: 95.5325%
+Precision of predictions: 0.9232%
+F - mesure - harmonic-mean of precision and sensitivity: 1.8287%
+Detection rate by attack type:
+Name: Web Attack � Brute Force, Detected: 95.1559%
+Name: Web Attack � XSS, Detected: 97.2393%
+Name: Web Attack � Sql Injection, Detected: 71.4286%
+Name: Infiltration, Detected: 94.4444%
+
+
+<-------------------------[LOG] 2025-07-30 14:12:34  Wizualizacja efektu testu na danych Autoencoder_Test [LOG]------------------------->
+Detection distribution anomaly/normal: 50.0000% / 50.0000%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 229313
+Normal traffic: 229313
+
+
+<--------------------[LOG] 2025-07-30 14:12:36 Sprawdzenie dokładniści wytrenowanego modelu na Autoencoder_Test [LOG]-------------------->
+Number of flows in Autoencoder_Test: 458626
+Correct data: 
+Real number of anomalies in Autoencoder_Test: 2216
+Procentage of anomlys in dataset: 0.4832%
+Predicted data: 
+Number of DETECTED anomalies in Autoencoder_Test: 229313
+Procentage of anomlys in dataset: 50.0000%
+
+Number of correct predictions(TP): 2117
+Number of wrong predyctions(FP): 227196
+Accuracy of predictions: 50.4400%
+Sensitivity of predictions: 95.5325%
+Precision of predictions: 0.9232%
+F - mesure - harmonic-mean of precision and sensitivity: 1.8287%
+Detection rate by attack type:
+Name: Web Attack � Brute Force, Detected: 95.1559%
+Name: Web Attack � XSS, Detected: 97.2393%
+Name: Web Attack � Sql Injection, Detected: 71.4286%
+Name: Infiltration, Detected: 94.4444%
+
+
+<-------------------------[LOG] 2025-07-30 14:18:14  Wizualizacja efektu testu na danych Autoencoder_Test [LOG]------------------------->
+Detection distribution anomaly/normal: 1.0002% / 98.9998%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 4587
+Normal traffic: 454039
+
+
+<--------------------[LOG] 2025-07-30 14:18:16 Sprawdzenie dokładniści wytrenowanego modelu na Autoencoder_Test [LOG]-------------------->
+Number of flows in Autoencoder_Test: 458626
+Correct data: 
+Real number of anomalies in Autoencoder_Test: 2216
+Procentage of anomlys in dataset: 0.4832%
+Predicted data: 
+Number of DETECTED anomalies in Autoencoder_Test: 4587
+Procentage of anomlys in dataset: 1.0002%
+
+Number of correct predictions(TP): 108
+Number of wrong predyctions(FP): 4479
+Accuracy of predictions: 98.5638%
+Sensitivity of predictions: 4.8736%
+Precision of predictions: 2.3545%
+F - mesure - harmonic-mean of precision and sensitivity: 3.1751%
+Detection rate by attack type:
+Name: Web Attack � Brute Force, Detected: 4.8441%
+Name: Web Attack � XSS, Detected: 2.9141%
+Name: Web Attack � Sql Injection, Detected: 0.0%
+Name: Infiltration, Detected: 44.4444%
+
+
+<-------------------------[LOG] 2025-07-30 14:18:47  Wizualizacja efektu testu na danych Autoencoder_Test [LOG]------------------------->
+Detection distribution anomaly/normal: 0.5002% / 99.4998%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 2294
+Normal traffic: 456332
+
+
+<--------------------[LOG] 2025-07-30 14:18:49 Sprawdzenie dokładniści wytrenowanego modelu na Autoencoder_Test [LOG]-------------------->
+Number of flows in Autoencoder_Test: 458626
+Correct data: 
+Real number of anomalies in Autoencoder_Test: 2216
+Procentage of anomlys in dataset: 0.4832%
+Predicted data: 
+Number of DETECTED anomalies in Autoencoder_Test: 2294
+Procentage of anomlys in dataset: 0.5002%
+
+Number of correct predictions(TP): 33
+Number of wrong predyctions(FP): 2261
+Accuracy of predictions: 99.0310%
+Sensitivity of predictions: 1.4892%
+Precision of predictions: 1.4385%
+F - mesure - harmonic-mean of precision and sensitivity: 1.4634%
+Detection rate by attack type:
+Name: Web Attack � Brute Force, Detected: 0.1327%
+Name: Web Attack � XSS, Detected: 2.454%
+Name: Web Attack � Sql Injection, Detected: 0.0%
+Name: Infiltration, Detected: 41.6667%
+
+
+<-------------------------[LOG] 2025-07-30 14:19:29  Wizualizacja efektu testu na danych Autoencoder_Test [LOG]------------------------->
+Detection distribution anomaly/normal: 0.5002% / 99.4998%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 2294
+Normal traffic: 456332
+
+
+<--------------------[LOG] 2025-07-30 14:19:31 Sprawdzenie dokładniści wytrenowanego modelu na Autoencoder_Test [LOG]-------------------->
+Number of flows in Autoencoder_Test: 458626
+Correct data: 
+Real number of anomalies in Autoencoder_Test: 2216
+Procentage of anomlys in dataset: 0.4832%
+Predicted data: 
+Number of DETECTED anomalies in Autoencoder_Test: 2294
+Procentage of anomlys in dataset: 0.5002%
+
+Number of correct predictions(TP): 33
+Number of wrong predyctions(FP): 2261
+Accuracy of predictions: 99.0310%
+Sensitivity of predictions: 1.4892%
+Precision of predictions: 1.4385%
+F - mesure - harmonic-mean of precision and sensitivity: 1.4634%
+Detection rate by attack type:
+Name: Web Attack � Brute Force, Detected: 0.1327%
+Name: Web Attack � XSS, Detected: 2.454%
+Name: Web Attack � Sql Injection, Detected: 0.0%
+Name: Infiltration, Detected: 41.6667%
+
+
+<-------------------------[LOG] 2025-07-30 14:23:31  Wizualizacja efektu testu na danych Autoencoder_Test [LOG]------------------------->
+Detection distribution anomaly/normal: 0.5000% / 99.5000%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 11492
+Normal traffic: 2286903
+
+
+<--------------------[LOG] 2025-07-30 14:23:39 Sprawdzenie dokładniści wytrenowanego modelu na Autoencoder_Test [LOG]-------------------->
+Number of flows in Autoencoder_Test: 2298395
+Correct data: 
+Real number of anomalies in Autoencoder_Test: 556556
+Procentage of anomlys in dataset: 24.2150%
+Predicted data: 
+Number of DETECTED anomalies in Autoencoder_Test: 11492
+Procentage of anomlys in dataset: 0.5000%
+
+Number of correct predictions(TP): 10521
+Number of wrong predyctions(FP): 971
+Accuracy of predictions: 76.2005%
+Sensitivity of predictions: 1.8904%
+Precision of predictions: 91.5506%
+F - mesure - harmonic-mean of precision and sensitivity: 3.7043%
+Detection rate by attack type:
+Name: FTP-Patator, Detected: 0.0%
+Name: SSH-Patator, Detected: 0.0%
+Name: DoS slowloris, Detected: 0.0%
+Name: DoS Slowhttptest, Detected: 0.7092%
+Name: DoS Hulk, Detected: 0.6627%
+Name: DoS GoldenEye, Detected: 0.0583%
+Name: Heartbleed, Detected: 0.0%
+Name: Web Attack � Brute Force, Detected: 0.0%
+Name: Web Attack � XSS, Detected: 0.0%
+Name: Web Attack � Sql Injection, Detected: 0.0%
+Name: Infiltration, Detected: 19.4444%
+Name: Bot, Detected: 0.2045%
+Name: PortScan, Detected: 0.0%
+Name: DDoS, Detected: 6.983%
+
+
+<-------------------------[LOG] 2025-07-30 14:24:12  Wizualizacja efektu testu na danych Autoencoder_Test [LOG]------------------------->
+Detection distribution anomaly/normal: 25.0000% / 75.0000%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 574599
+Normal traffic: 1723796
+
+
+<--------------------[LOG] 2025-07-30 14:24:20 Sprawdzenie dokładniści wytrenowanego modelu na Autoencoder_Test [LOG]-------------------->
+Number of flows in Autoencoder_Test: 2298395
+Correct data: 
+Real number of anomalies in Autoencoder_Test: 556556
+Procentage of anomlys in dataset: 24.2150%
+Predicted data: 
+Number of DETECTED anomalies in Autoencoder_Test: 574599
+Procentage of anomlys in dataset: 25.0000%
+
+Number of correct predictions(TP): 345403
+Number of wrong predyctions(FP): 229196
+Accuracy of predictions: 80.8410%
+Sensitivity of predictions: 62.0608%
+Precision of predictions: 60.1120%
+F - mesure - harmonic-mean of precision and sensitivity: 61.0709%
+Detection rate by attack type:
+Name: FTP-Patator, Detected: 10.0693%
+Name: SSH-Patator, Detected: 0.2883%
+Name: DoS slowloris, Detected: 59.6446%
+Name: DoS Slowhttptest, Detected: 95.9993%
+Name: DoS Hulk, Detected: 86.1931%
+Name: DoS GoldenEye, Detected: 93.4519%
+Name: Heartbleed, Detected: 100.0%
+Name: Web Attack � Brute Force, Detected: 5.0431%
+Name: Web Attack � XSS, Detected: 3.0675%
+Name: Web Attack � Sql Injection, Detected: 19.0476%
+Name: Infiltration, Detected: 88.8889%
+Name: Bot, Detected: 3.681%
+Name: PortScan, Detected: 22.4213%
+Name: DDoS, Detected: 71.9078%
+
+
+<-------------------------------------------------[LOG] 2025-07-30 16:09:47 START [LOG]------------------------------------------------->
+
+
+<-------------------------[LOG] 2025-07-30 16:12:37  Wizualizacja efektu testu na danych Autoencoder_Test [LOG]------------------------->
+Detection distribution anomaly/normal: 25.0000% / 75.0000%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 574599
+Normal traffic: 1723796
+
+
+<--------------------[LOG] 2025-07-30 16:12:45 Sprawdzenie dokładniści wytrenowanego modelu na Autoencoder_Test [LOG]-------------------->
+Number of flows in Autoencoder_Test: 2298395
+Correct data: 
+Real number of anomalies in Autoencoder_Test: 556556
+Procentage of anomlys in dataset: 24.2150%
+Predicted data: 
+Number of DETECTED anomalies in Autoencoder_Test: 574599
+Procentage of anomlys in dataset: 25.0000%
+
+Number of correct predictions(TP): 310567
+Number of wrong predyctions(FP): 264032
+Accuracy of predictions: 77.8097%
+Sensitivity of predictions: 55.8016%
+Precision of predictions: 54.0493%
+F - mesure - harmonic-mean of precision and sensitivity: 54.9115%
+Detection rate by attack type:
+Name: FTP-Patator, Detected: 14.9842%
+Name: SSH-Patator, Detected: 0.4239%
+Name: DoS slowloris, Detected: 60.2139%
+Name: DoS Slowhttptest, Detected: 97.0358%
+Name: DoS Hulk, Detected: 86.4599%
+Name: DoS GoldenEye, Detected: 90.5373%
+Name: Heartbleed, Detected: 100.0%
+Name: Web Attack � Brute Force, Detected: 14.6649%
+Name: Web Attack � XSS, Detected: 10.8896%
+Name: Web Attack � Sql Injection, Detected: 4.7619%
+Name: Infiltration, Detected: 88.8889%
+Name: Bot, Detected: 3.7832%
+Name: PortScan, Detected: 5.9073%
+Name: DDoS, Detected: 64.403%
+
+
+<-------------------------[LOG] 2025-07-30 16:24:47  Wizualizacja efektu testu na danych Autoencoder_Test [LOG]------------------------->
+Detection distribution anomaly/normal: 25.0000% / 75.0000%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 574598
+Normal traffic: 1723797
+
+
+<--------------------[LOG] 2025-07-30 16:24:55 Sprawdzenie dokładniści wytrenowanego modelu na Autoencoder_Test [LOG]-------------------->
+Number of flows in Autoencoder_Test: 2298395
+Correct data: 
+Real number of anomalies in Autoencoder_Test: 556556
+Procentage of anomlys in dataset: 24.2150%
+Predicted data: 
+Number of DETECTED anomalies in Autoencoder_Test: 574598
+Procentage of anomlys in dataset: 25.0000%
+
+Number of correct predictions(TP): 368308
+Number of wrong predyctions(FP): 206290
+Accuracy of predictions: 82.8342%
+Sensitivity of predictions: 66.1763%
+Precision of predictions: 64.0984%
+F - mesure - harmonic-mean of precision and sensitivity: 65.1208%
+Detection rate by attack type:
+Name: FTP-Patator, Detected: 12.6654%
+Name: SSH-Patator, Detected: 0.0339%
+Name: DoS slowloris, Detected: 59.0407%
+Name: DoS Slowhttptest, Detected: 98.2179%
+Name: DoS Hulk, Detected: 86.1318%
+Name: DoS GoldenEye, Detected: 87.817%
+Name: Heartbleed, Detected: 100.0%
+Name: Web Attack � Brute Force, Detected: 5.0431%
+Name: Web Attack � XSS, Detected: 3.2209%
+Name: Web Attack � Sql Injection, Detected: 14.2857%
+Name: Infiltration, Detected: 88.8889%
+Name: Bot, Detected: 2.6585%
+Name: PortScan, Detected: 43.6714%
+Name: DDoS, Detected: 63.8016%
+
+
+<-------------------------[LOG] 2025-07-30 16:35:52  Wizualizacja efektu testu na danych Autoencoder_Test [LOG]------------------------->
+Detection distribution anomaly/normal: 25.0000% / 75.0000%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 574599
+Normal traffic: 1723796
+
+
+<--------------------[LOG] 2025-07-30 16:36:00 Sprawdzenie dokładniści wytrenowanego modelu na Autoencoder_Test [LOG]-------------------->
+Number of flows in Autoencoder_Test: 2298395
+Correct data: 
+Real number of anomalies in Autoencoder_Test: 556556
+Procentage of anomlys in dataset: 24.2150%
+Predicted data: 
+Number of DETECTED anomalies in Autoencoder_Test: 574599
+Procentage of anomlys in dataset: 25.0000%
+
+Number of correct predictions(TP): 325560
+Number of wrong predyctions(FP): 249039
+Accuracy of predictions: 79.1143%
+Sensitivity of predictions: 58.4955%
+Precision of predictions: 56.6586%
+F - mesure - harmonic-mean of precision and sensitivity: 57.5624%
+Detection rate by attack type:
+Name: FTP-Patator, Detected: 14.9086%
+Name: SSH-Patator, Detected: 0.0509%
+Name: DoS slowloris, Detected: 58.5921%
+Name: DoS Slowhttptest, Detected: 92.6168%
+Name: DoS Hulk, Detected: 87.6714%
+Name: DoS GoldenEye, Detected: 83.9211%
+Name: Heartbleed, Detected: 100.0%
+Name: Web Attack � Brute Force, Detected: 5.0431%
+Name: Web Attack � XSS, Detected: 3.2209%
+Name: Web Attack � Sql Injection, Detected: 14.2857%
+Name: Infiltration, Detected: 88.8889%
+Name: Bot, Detected: 3.8344%
+Name: PortScan, Detected: 15.0028%
+Name: DDoS, Detected: 63.6212%

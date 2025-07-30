@@ -629,3 +629,5 @@ Name: Infiltration, Detected: 97.2222%
 Name: Bot, Detected: 67.6892%
 Name: PortScan, Detected: 99.9421%
 Name: DDoS, Detected: 90.9682%
+No such comm target registered: jupyter.widget.control
+No such comm: a4fc94d1-5ee3-4870-bee3-de291cb8198c

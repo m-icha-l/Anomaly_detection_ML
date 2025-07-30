@@ -209,6 +209,22 @@ def test_OCSVM_model(model_OCSVM, df_scaled, df_labels, name="df", level=["start
 
     return test_model(df_scaled_result, df_scaled, df_labels, name, level)
 
+def test_OCSVM_model_2(model_OCSVM, df_scaled, df_labels, name="df", level=["start", "OCSVM"]):
+    
+
+    # Predict labels (1: normal, 0: anomaly) - matches pyod convention
+    preds = model_OCSVM.labels_
+
+    # Anomaly scores (the lower, the more anomalous)
+    scores = model_OCSVM.decision_scores_
+
+    # Wrap into DataFrame
+    df_scaled_result = pd.DataFrame()
+    df_scaled_result['prediction'] = [1 if p == 0 else -1 for p in preds]  # Align with scikit-learn (-1 for anomalies)
+    df_scaled_result['anomaly_score'] = scores
+
+    return test_model(df_scaled_result, df_scaled, df_labels, name, level)
+
     
 def test_model(df_scaled_result = None, df_scaled = None, df_labels = None, name="df", level = ["start","no_name"], ready = None, flag = False):
     

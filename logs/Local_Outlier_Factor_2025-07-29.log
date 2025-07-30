@@ -4,3 +4,66 @@
 
 
 <-------------------------------------------------[LOG] 2025-07-29 15:17:51 START [LOG]------------------------------------------------->
+No such comm target registered: jupyter.widget.control
+No such comm: 95549885-daf6-40d2-badb-b4d7fc68b97d
+
+
+<-------------------------------------------------[LOG] 2025-07-30 12:19:50 START [LOG]------------------------------------------------->
+
+
+<------------------------------[LOG] 2025-07-30 12:44:56  Wizualizacja efektu testu na danych df_test [LOG]------------------------------>
+Detection distribution anomaly/normal: 42.9588% / 57.0412%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 137887
+Normal traffic: 183088
+
+
+<------------------------[LOG] 2025-07-30 12:44:58 Sprawdzenie dokładniści wytrenowanego modelu na df_test [LOG]------------------------>
+Number of flows in df_test: 320975
+Correct data: 
+Real number of anomalies in df_test: 2135
+Procentage of anomlys in dataset: 0.6652%
+Predicted data: 
+Number of DETECTED anomalies in df_test: 137887
+Procentage of anomlys in dataset: 42.9588%
+
+Number of correct predictions(TP): 2133
+Number of wrong predyctions(FP): 135754
+Accuracy of predictions: 57.7051%
+Sensitivity of predictions: 99.9063%
+Precision of predictions: 1.5469%
+F - mesure - harmonic-mean of precision and sensitivity: 3.0467%
+Detection rate by attack type:
+Name: Web Attack � XSS, Detected: 100.0%
+Name: Web Attack � Brute Force, Detected: 100.0%
+Name: Web Attack � Sql Injection, Detected: 100.0%
+Name: Infiltration, Detected: 94.4444%
+
+
+<------------------------------[LOG] 2025-07-30 13:15:19  Wizualizacja efektu testu na danych df_test [LOG]------------------------------>
+Detection distribution anomaly/normal: 43.0136% / 56.9864%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 138063
+Normal traffic: 182912
+
+
+<------------------------[LOG] 2025-07-30 13:15:21 Sprawdzenie dokładniści wytrenowanego modelu na df_test [LOG]------------------------>
+Number of flows in df_test: 320975
+Correct data: 
+Real number of anomalies in df_test: 2135
+Procentage of anomlys in dataset: 0.6652%
+Predicted data: 
+Number of DETECTED anomalies in df_test: 138063
+Procentage of anomlys in dataset: 43.0136%
+
+Number of correct predictions(TP): 2133
+Number of wrong predyctions(FP): 135930
+Accuracy of predictions: 57.6503%
+Sensitivity of predictions: 99.9063%
+Precision of predictions: 1.5449%
+F - mesure - harmonic-mean of precision and sensitivity: 3.0428%
+Detection rate by attack type:
+Name: Web Attack � XSS, Detected: 100.0%
+Name: Web Attack � Brute Force, Detected: 100.0%
+Name: Web Attack � Sql Injection, Detected: 100.0%
+Name: Infiltration, Detected: 94.4444%
