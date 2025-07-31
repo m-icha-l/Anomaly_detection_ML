@@ -183,3 +183,83 @@ Name: Infiltration, Detected: 100.0%
 Name: Bot, Detected: 100.0%
 Name: PortScan, Detected: 100.0%
 Name: DDoS, Detected: 100.0%
+No such comm target registered: jupyter.widget.control
+No such comm: 104baa7b-83c3-4064-9a27-b444fba9d6df
+
+
+<----------------------------[LOG] 2025-07-31 16:04:59  Wizualizacja efektu testu na danych df_test_all [LOG]---------------------------->
+Detection distribution anomaly/normal: 14.7501% / 85.2499%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 247358
+Normal traffic: 1429635
+
+
+<----------------------[LOG] 2025-07-31 16:05:05 Sprawdzenie dokładniści wytrenowanego modelu na df_test_all [LOG]---------------------->
+Number of flows in df_test_all: 1676993
+Correct data: 
+Real number of anomalies in df_test_all: 335370
+Procentage of anomlys in dataset: 19.9983%
+Predicted data: 
+Number of DETECTED anomalies in df_test_all: 247358
+Procentage of anomlys in dataset: 14.7501%
+
+Number of correct predictions(TP): 225501
+Number of wrong predyctions(FP): 21857
+Accuracy of predictions: 92.1451%
+Sensitivity of predictions: 67.2395%
+Precision of predictions: 91.1638%
+F - mesure - harmonic-mean of precision and sensitivity: 77.3949%
+Detection rate by attack type:
+Name: SSH-Patator, Detected: 0.0634%
+Name: FTP-Patator, Detected: 0.0%
+Name: DoS Slowhttptest, Detected: 0.8227%
+Name: DoS Hulk, Detected: 85.9696%
+Name: DoS slowloris, Detected: 0.0%
+Name: DoS GoldenEye, Detected: 50.1702%
+Name: Heartbleed, Detected: 100.0%
+Name: Web Attack � XSS, Detected: 0.4601%
+Name: Web Attack � Brute Force, Detected: 0.2102%
+Name: Web Attack � Sql Injection, Detected: 0.0%
+Name: Infiltration, Detected: 30.5556%
+Name: Bot, Detected: 3.2909%
+Name: PortScan, Detected: 2.8081%
+Name: DDoS, Detected: 56.4974%
+
+
+<----------------------------[LOG] 2025-07-31 16:19:58  Wizualizacja efektu testu na danych df_test_all [LOG]---------------------------->
+Detection distribution anomaly/normal: 37.0681% / 62.9319%
+!!! Wyniki pokazuje dopasowanie contamination (wyciagania wnioskow z gotowego produktu pracy modelu) NIE DCHYLENIA NORMALNY/ANOMALYJNY ruch sieciowy !!!
+Anomaly detected: 621629
+Normal traffic: 1055364
+
+
+<----------------------[LOG] 2025-07-31 16:20:04 Sprawdzenie dokładniści wytrenowanego modelu na df_test_all [LOG]---------------------->
+Number of flows in df_test_all: 1676993
+Correct data: 
+Real number of anomalies in df_test_all: 335370
+Procentage of anomlys in dataset: 19.9983%
+Predicted data: 
+Number of DETECTED anomalies in df_test_all: 621629
+Procentage of anomlys in dataset: 37.0681%
+
+Number of correct predictions(TP): 298966
+Number of wrong predyctions(FP): 322663
+Accuracy of predictions: 78.5886%
+Sensitivity of predictions: 89.1451%
+Precision of predictions: 48.0940%
+F - mesure - harmonic-mean of precision and sensitivity: 62.4799%
+Detection rate by attack type:
+Name: SSH-Patator, Detected: 96.0355%
+Name: FTP-Patator, Detected: 99.6122%
+Name: DoS Slowhttptest, Detected: 90.4725%
+Name: DoS Hulk, Detected: 96.5315%
+Name: DoS slowloris, Detected: 60.5537%
+Name: DoS GoldenEye, Detected: 85.2835%
+Name: Heartbleed, Detected: 100.0%
+Name: Web Attack � XSS, Detected: 5.2147%
+Name: Web Attack � Brute Force, Detected: 8.4793%
+Name: Web Attack � Sql Injection, Detected: 70.0%
+Name: Infiltration, Detected: 55.5556%
+Name: Bot, Detected: 42.3336%
+Name: PortScan, Detected: 75.663%
+Name: DDoS, Detected: 82.0549%
